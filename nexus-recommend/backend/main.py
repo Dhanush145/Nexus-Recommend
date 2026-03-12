@@ -40,20 +40,9 @@ MODEL_PATH          = f"{HDFS_URL}/models/als_latest"
 RECS_PATH           = f"{HDFS_URL}/data/recommendations"
 RECS_CACHE_TTL      = 60   # seconds
 
-PRODUCTS = [
-    {"id": 1,  "name": "Sony WH-1000XM5",       "category": "Electronics",  "price": 349,  "img": "🎧", "rating": 4.8},
-    {"id": 2,  "name": "MacBook Air M3",         "category": "Computers",    "price": 1299, "img": "💻", "rating": 4.9},
-    {"id": 3,  "name": "Nike Air Max 270",       "category": "Footwear",     "price": 130,  "img": "👟", "rating": 4.6},
-    {"id": 4,  "name": "Kindle Paperwhite",      "category": "Electronics",  "price": 139,  "img": "📖", "rating": 4.7},
-    {"id": 5,  "name": "Instant Pot Duo 7-in-1", "category": "Kitchen",      "price": 99,   "img": "🍲", "rating": 4.8},
-    {"id": 6,  "name": "Levi's 511 Slim Jeans",  "category": "Apparel",      "price": 79,   "img": "👖", "rating": 4.5},
-    {"id": 7,  "name": "Fitbit Charge 6",        "category": "Wearables",    "price": 159,  "img": "⌚", "rating": 4.4},
-    {"id": 8,  "name": "Canon EOS R50",          "category": "Photography",  "price": 679,  "img": "📷", "rating": 4.7},
-    {"id": 9,  "name": "LEGO Technic F40",       "category": "Toys",         "price": 189,  "img": "🧱", "rating": 4.9},
-    {"id": 10, "name": "Dyson V15 Detect",       "category": "Home",         "price": 649,  "img": "🌀", "rating": 4.6},
-    {"id": 11, "name": "Vitamix 5200",           "category": "Kitchen",      "price": 449,  "img": "🥤", "rating": 4.8},
-    {"id": 12, "name": "Samsung 4K QLED 65\"",   "category": "Electronics",  "price": 1199, "img": "📺", "rating": 4.7},
-]
+# Load the 100,000 products into memory
+with open("products.json", "r", encoding="utf-8") as file:
+    PRODUCTS = json.load(file)
 
 # ── Global singletons ─────────────────────────────────────────────────────────
 redis_client: Optional[aioredis.Redis] = None
