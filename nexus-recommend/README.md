@@ -17,13 +17,13 @@
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │  kafka-producer (Python)                                     │
-│  Generates 2 events/sec → Apache Kafka topic "clickstream"  │
+│  Generates 2 events/sec → Apache Kafka topic "clickstream"   │
 └───────────────────────┬──────────────────────────────────────┘
                         │ Real Kafka messages
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  Spark Structured Streaming  (kafka_to_hdfs.py)              │
-│  Consumes Kafka → writes Parquet to HDFS every 10s          │
+│  Consumes Kafka → writes Parquet to HDFS every 10s           │
 └───────────────────────┬──────────────────────────────────────┘
                         │ Parquet files
                         ▼
@@ -37,24 +37,24 @@
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  Spark MLlib ALS Training  (train_als.py)                    │
-│  spark-submit → rank=50, λ=0.01, 20 iterations              │
+│  spark-submit → rank=50, λ=0.01, 20 iterations               │
 │  Saves ALSModel to HDFS                                      │
 └───────────────────────┬──────────────────────────────────────┘
                         │ Model
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
-│  FastAPI Backend  (main.py)                                   │
-│  • SSE  → real Kafka → browser                              │
-│  • GET  /api/recommend → HDFS ALS → Redis cache             │
+│  FastAPI Backend  (main.py)                                  │
+│  • SSE  → real Kafka → browser                               │
+│  • GET  /api/recommend → HDFS ALS → Redis cache              │
 │  • POST /api/train     → spark-submit                        │
-│  • GET  /api/hdfs/status → real WebHDFS API                 │
-│  • GET  /api/spark/status → real Spark REST API             │
+│  • GET  /api/hdfs/status → real WebHDFS API                  │
+│  • GET  /api/spark/status → real Spark REST API              │
 └───────────────────────┬──────────────────────────────────────┘
                         │ HTTP + SSE
                         ▼
 ┌──────────────────────────────────────────────────────────────┐
 │  React Frontend  (Vite + real API calls)                     │
-│  Shows real HDFS stats, real Kafka events, real ALS recs    │
+│  Shows real HDFS stats, real Kafka events, real ALS recs     │
 └──────────────────────────────────────────────────────────────┘
 ```
 
