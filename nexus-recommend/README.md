@@ -1,7 +1,7 @@
 # Team Members
-Dhanush N - 24bds018
-Vikas - 24bds088
-Kishan - 24bds031
+Dhanush N - 24bds018;
+Vikas - 24bds088;
+Kishan - 24bds031;
 Harsha - 24bds020
 
 
