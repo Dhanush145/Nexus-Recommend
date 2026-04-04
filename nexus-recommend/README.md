@@ -1,3 +1,11 @@
+# Team Members
+Dhanush N - 24bds018
+Vikas - 24bds088
+Kishan - 24bds031
+Harsha - 24bds020
+
+
+------------------------------------------------------------------------------------------
 # ⚡ NEXUS · RECOMMEND — Real System
 ### Real Apache Kafka + Real HDFS + Real Spark MLlib ALS + FastAPI + React
 
